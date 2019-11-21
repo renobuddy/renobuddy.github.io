@@ -14,9 +14,9 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<!-- optional, prevents the submit button from being pressed more than once -->
 		<script>
+			document.getElementById("emailtext").value = document.getElementById("email").value;
 			var submitButton = document.getElementById("submit_form");
 			var form = document.getElementById("email_form");
-			document.getElementById("emailtext").value = document.getElementById("email").value;
 			form.addEventListener("submit", function (e) {
 				setTimeout(function() {
 				submitButton.value = "Sending...";
