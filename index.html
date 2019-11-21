@@ -46,7 +46,7 @@
 						    <input type="hidden" name="access_token" value="9a7ouxkhi1e5w2deyymdie5w" />
 						    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
 						    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-						    <input type="email" id="email" placeholder="Email" />
+						    <div class="field half"><input type="email" id="email" placeholder="Email" /></div>
 						    <textarea style="display:none;" id="emailtext" name="text" placeholder="Message"></textarea>
 							<input id="submit_form" type="submit" value="Email Me!" />
 							<script>
@@ -146,15 +146,35 @@
 						<p>Looking for a personalized message? Do it right below.</p>
 					</header>
 					<div class="box">
-						<form method="post" action="#">
+						<form action="https://postmail.invotes.com/send" method="post" id="email_form1">
 							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+								<input type="hidden" name="access_token" value="9a7ouxkhi1e5w2deyymdie5w" />
+								<input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+								<input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+								<div class="field half"><input id="name1" type="text" name="name" placeholder="Name" /></div>
+								<div class="field half"><input id="email1" type="email" name="email" placeholder="Email" /></div>
+								<div class="field"><textarea name="text" placeholder="Message" rows="6"></textarea></div>
+								<input id="subject" name="subject" alue="New Interested Cuvstomer!" />
 							</div>
 							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
+								<li><input id="submit_form1" type="submit" value="Send Message" /></li>
 							</ul>
+							<script>
+								$('#name1').keyup(function(){
+									$('#subject').val($(this).val() + " - " + $('#email1').val());
+								});
+								$('#email1').keyup(function(){
+									$('#subject').val($('#name1').val() + " - " + $(this).val());
+								});
+								var submitButton = document.getElementById("submit_form1");
+								var form = document.getElementById("email_form1");
+								form.addEventListener("submit", function (e) {
+									setTimeout(function() {
+									submitButton.value = "Sending...";
+									submitButton.disabled = true;
+									}, 1);
+								});
+							</script>
 						</form>
 					</div>
 				</div>
@@ -175,7 +195,7 @@
 
 				<!-- Menu -->
 					<ul class="menu">
-						<li>&copy; Renobuddy 2018</li><li>Designed by Us</a></li>
+						<li>&copy; Renobuddy 2019</li><li>Designed by Us</a></li>
 					</ul>
 
 			</footer>
