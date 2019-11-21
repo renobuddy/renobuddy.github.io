@@ -12,6 +12,17 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="shortcut icon" href="images/icon.png">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- optional, prevents the submit button from being pressed more than once -->
+		<script>
+			var submitButton = document.getElementById("submit_form");
+			var form = document.getElementById("email_form");
+			form.addEventListener("submit", function (e) {
+				setTimeout(function() {
+				submitButton.value = "Sending...";
+				submitButton.disabled = true;
+				}, 1);
+			});
+		</script> 
 	</head>
 	<body class="is-preload">
 
@@ -42,41 +53,12 @@
 					<div class="fields">
 						<form action="https://postmail.invotes.com/send" method="post" id="email_form">
 						    <input type="hidden" name="subject" placeholder="New Interested Customer!" />
-						    <textarea name="text" placeholder="Message"></textarea>
 						    <input type="hidden" name="access_token" value="9a7ouxkhi1e5w2deyymdie5w" />
-						      <!-- return urls can be fully qualified -OR-
-							 start with / for root relative -OR-
-							 start with . for url relative --> 
 						    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
 						    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-						    <!-- set the reply-to address -->
-						    <!-- <input type="text" name="reply_to"
-								placeholder="Your Email" /> -->
-
-						    <!-- to append extra fields, use the extra_ prefix.
-							Entries will be appended to your message body. -->
-						    <!-- <input type="text" name="extra_phone_number"
-								placeholder="Phone Number" /> -->
-
-						    <!-- to split your message into 160 chars
-							 for an sms gateway -->
-						    <!-- <input type="hidden"
-								name="sms_format" value="true" /> -->
 						    <input type="email" name="email" placeholder="Email" />
 						    <input id="submit_form" type="submit" value="Email Me!" />
 						</form>
-
-						<!-- optional, prevents the submit button from being pressed more than once -->
-						<script>
-						    var submitButton = document.getElementById("submit_form");
-						    var form = document.getElementById("email_form");
-						    form.addEventListener("submit", function (e) {
-							setTimeout(function() {
-							    submitButton.value = "Sending...";
-							    submitButton.disabled = true;
-							}, 1);
-						    });
-						</script> 
 					</div>
 					<footer>
 						<a href="#one" class="button style2 down">More</a>
