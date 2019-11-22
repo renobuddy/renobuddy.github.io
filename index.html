@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>RenoBuddy - Building Your Dream Home</title>
@@ -25,13 +20,18 @@
 						<li><a href="#one">What We Do</a></li>
 						<li><a href="#two">Who We Are</a></li>
 						<li><a href="#work">Our Work</a></li>
-						<li><a href="#contact">Contact</a></li>
+						<li><a href="#contact">Email</a></li>
+						<li><a href="https://wa.me/6590118133">WhatsApp</a></li>
 					</ul>
 				</nav>
 			</header>
 
 		<!-- Intro -->
 			<section id="intro" class="main style1 dark fullscreen">
+					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+					<a href="https://wa.me/6590118133" class="float" target="_blank">
+					<i class="fa fa-whatsapp my-float"></i>
+					</a>
 				<div class="content">
 					<img src="images/icon1.png" class="logo"/>
 					<header>
@@ -46,19 +46,19 @@
 						    <input type="hidden" name="access_token" value="9a7ouxkhi1e5w2deyymdie5w" />
 						    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
 						    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-						    <div class="field half"><input type="email" id="email" placeholder="Email" /></div>
+						    <input type="email" id="email" placeholder="Email" />
 						    <textarea style="display:none;" id="emailtext" name="text" placeholder="Message"></textarea>
 							<input id="submit_form" type="submit" value="Email Me!" />
 							<script>
 								$('#email').keyup(function(){
 									$('#emailtext').val($(this).val() + " is interested. please email!");
 								});
-								var submitButton = document.getElementById("submit_form");
-								var form = document.getElementById("email_form");
-								form.addEventListener("submit", function (e) {
+								var submitButton1 = document.getElementById("submit_form");
+								var form1 = document.getElementById("email_form");
+								form1.addEventListener("submit", function (e) {
 									setTimeout(function() {
-									submitButton.value = "Sending...";
-									submitButton.disabled = true;
+									submitButton1.value = "Sending...";
+									submitButton1.disabled = true;
 									}, 1);
 								});
 							</script>
